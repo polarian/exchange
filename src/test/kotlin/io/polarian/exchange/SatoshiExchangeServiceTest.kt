@@ -19,7 +19,7 @@ class SatoshiExchangeServiceTest {
         val btc = SatoshiCoin("BTC", BigInteger.valueOf(10000000), BigInteger.valueOf(0))
         val eth = SatoshiCoin("ETH", BigInteger.valueOf(0), BigInteger.valueOf(0))
         val balance = SatoshiBalance(BigInteger.valueOf(100001), BigInteger.valueOf(10000))
-        val fee = BigDecimal.valueOf(0.01)
+        val fee = BigDecimal.valueOf(0.001)
 
         satoshiExchangeService.bidOrder(btc, eth, balance)
 
@@ -32,7 +32,7 @@ class SatoshiExchangeServiceTest {
 
         assertThat(btc.available).isEqualByComparingTo(BigInteger.valueOf(9999989))
         assertThat(btc.limit).isEqualByComparingTo(BigInteger.valueOf(0))
-        assertThat(eth.available).isEqualByComparingTo(BigInteger.valueOf(9900))
+        assertThat(eth.available).isEqualByComparingTo(BigInteger.valueOf(9990))
         assertThat(eth.limit).isEqualByComparingTo(BigInteger.valueOf(0))
     }
 
@@ -41,7 +41,7 @@ class SatoshiExchangeServiceTest {
         val btc = SatoshiCoin("BTC", BigInteger.valueOf(0), BigInteger.valueOf(0))
         val eth = SatoshiCoin("ETH", BigInteger.valueOf(10000000), BigInteger.valueOf(0))
         val balance = SatoshiBalance(BigInteger.valueOf(100001), BigInteger.valueOf(10000))
-        val fee = BigDecimal.valueOf(0.01)
+        val fee = BigDecimal.valueOf(0.001)
 
         satoshiExchangeService.askOrder(btc, eth, balance)
 
